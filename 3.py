@@ -1,6 +1,5 @@
 import csv
 import datetime
-from string import
 
 
 with open("scientist.txt", encoding="utf-8") as f:

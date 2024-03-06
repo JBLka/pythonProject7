@@ -1,6 +1,6 @@
 import csv
 import random
-from string import ascii_letters,digits
+from string import ascii_letters, digits
 
 
 with open("scientist.txt", encoding="utf-8") as f:

@@ -16,8 +16,7 @@ with open("scientist.txt", encoding="utf-8") as f:
         name = i["ScientistName"]
         i["hash"] = hash(name)
 
-
 with open("cientist_with_hash.csv", "w", encoding="utf-8", newline="") as f:
-    writer = csv.DictWriter(f, fieldnames=["ScientistName","preparation", "date", "components", "hash"], delimiter = "#")
+    writer = csv.DictWriter(f, fieldnames=["ScientistName", "preparation", "date", "components", "hash"], delimiter="#")
     writer.writeheader()
     writer.writerows(s)

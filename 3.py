@@ -2,25 +2,24 @@ import csv
 import datetime
 
 with open("scientist.txt", encoding="utf-8") as f:
-    reader = list(csv.DictReader(f, delimiter="#"))
-    request = input()
-    while request != "эксперимент":
-        request = request.split('.')
-        request = request[::-1]
-        request = str(datetime.date(int(request[0]), int(request[1]), int(request[2])))
-
-        left = 0
-        right = len(reader) - 1
-        while left <= right:
-            center = (left + right) // 2
-            if request == reader[center]['date']:
-                scientist = reader[center]
+    s = list(csv.DictReader(f, delimiter="#"))
+    date = input()
+    while date != "эксперимент":
+        date = date.split('.')
+        date = date[::-1]
+        date = str(datetime.date(int(date[0]), int(date[1]), int(date[2])))  # Получаем введеную дату
+        le = 0
+        ri = len(s) - 1
+        while le <= ri:
+            center = (le + ri) // 2
+            if date == s[center]['date']:
+                scientist = s[center]
                 scientist_name = scientist['ScientistName'].split()
                 print(f'Ученый {scientist_name[0]} {scientist_name[1][0]}.{scientist_name[2][0]}.'
                       f' создал препарат: {scientist["preparation"]} - {scientist["date"]}')
                 break
-            if request > reader[center]['date']:
-                left = center + 1
+            if date > s[center]['date']:
+                le = center + 1
             else:
-                right = center - 1
-        request = input()
+                ri = center - 1
+        date = input()

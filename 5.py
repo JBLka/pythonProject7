@@ -2,7 +2,7 @@ import csv
 import random
 
 
-def hash(s):
+def hash(s):               # Хеширование
     a = list(range(1024))
     random.shuffle(a)
     s = s.split()

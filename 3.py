@@ -1,7 +1,6 @@
 import csv
 import datetime
 
-
 with open("scientist.txt", encoding="utf-8") as f:
     reader = list(csv.DictReader(f, delimiter="#"))
     request = input()
